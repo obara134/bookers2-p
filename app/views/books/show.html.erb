@@ -24,10 +24,10 @@
       </table>
 
       <div class="row">
-        <p><%= link_to "", edit_user_registration_path, class: "btn btn-outline-socondary btn-block fas fa-user-cog edit_user_27083" %></p>
+        <p><%= link_to "", edit_user_path(@user), class: "btn btn-outline-socondary btn-block fas fa-user-cog edit_user_27083" %></p>
       </div>
 
-      <h2>New Book</h2>
+      <h2>New book</h2>
       <%= form_with model: @new_book, local:true do |f| %>
         <label for="book_title">Title</label></br>
         <%= f.text_field :title, autofocus: true, id:"book_title" %>
@@ -37,7 +37,7 @@
       <% end %>
     </div>
 
-    <div class="col-8 offset-md-1">
+    <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table table-hover table-inverse">
         <tbody>
@@ -50,7 +50,7 @@
               </td>
               <td><%= link_to @book.title, book_path(@book.id) %></td>
               <td><%= @book.body %></td>
-              <% if @book.user = current_user %>
+              <% if @book.user == current_user %>
                 <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %></td>
                 <td><%= link_to "Destroy", book_path(@book.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %></td>
               <% end %>
