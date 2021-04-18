@@ -1,0 +1,11 @@
+ <%= form_with model: book, local:true do |f| %>
+        <div class="form-gruop">
+          <%= f.label :title %></br>
+          <%= f.text_field :title, autofocus: true, id:"book_title" %>
+        </div>
+        <div class="form-gruop">
+          <%= f.label :opinion %></br>
+          <%= f.text_area :body, autofocus: true, id:"book_body" %>
+        </div>
+        <%= f.submit %>
+      <% end %>
